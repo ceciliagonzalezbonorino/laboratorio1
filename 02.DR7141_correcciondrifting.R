@@ -85,6 +85,9 @@ AgregarVariables  <- function( dataset )
   
   #Aqui debe usted agregar sus propias nuevas variables
   
+  dataset [ , edad_antiguedad        := (cliente_edad-18)/cliente_antiguedad]
+
+  
   #valvula de seguridad para evitar valores infinitos
   #paso los infinitos a NULOS
   infinitos      <- lapply(names(dataset),function(.name) dataset[ , sum(is.infinite(get(.name)))])
